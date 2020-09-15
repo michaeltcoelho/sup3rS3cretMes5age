@@ -28,4 +28,7 @@ logs:
 stop:
 	@docker-compose stop
 
+push:
+	@docker-compose push supersecret
+
 .PHONY: test build clean run-local run logs stop
