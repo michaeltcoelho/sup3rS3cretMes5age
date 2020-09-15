@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment { 
-    DOMAIN=secret.andfrankly.com
+    DOMAIN='secret.andfrankly.com'
   }
 
   stages {
