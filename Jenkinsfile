@@ -2,6 +2,7 @@ pipeline {
   agent any
 
   environment { 
+    AWS_CREDENTIAL_ID='andfrankly-jenkins-aws'
     DOMAIN='secret.andfrankly.com'
   }
 
@@ -18,7 +19,9 @@ pipeline {
         }
       }
       steps {
-        sh 'make push'
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: env.AWS_CREDENTIAL_ID]]) {
+          sh 'make push'
+        }
       }
     }
   }
